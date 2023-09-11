@@ -22,8 +22,6 @@ public class HelloController {
             array = new ArrayList<>();
         }
         array.add(s);
-
-
         return "done";
     }
 
@@ -37,21 +35,17 @@ public class HelloController {
         if (hashMap.isEmpty()) {
             hashMap = new HashMap<>();
         }
-
-        hashMap.put(s, s + "Value");
-
+        hashMap.put(s, s);
         return "done";
     }
 
     @GetMapping("/show-map")
     public String showHashMap() {
-        return hashMap.values().toString();
+        return Arrays.toString(hashMap.entrySet().toArray());
     }
 
     @GetMapping("/show-all-length")
     public String ShowAllLength() {
-
-
         return "Количество элементов ArrayList = " + array.size() + "\n" +
                 "Количество элементов HashMap = " + hashMap.size();
     }
